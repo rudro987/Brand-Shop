@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        cormorant: "'Cormorant Garamond', serif",
+      },
+      colors:{
+        btnColor: "#F75B5F",
+      }
+    },
   },
   plugins: [],
 }
