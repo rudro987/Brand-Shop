@@ -7,7 +7,7 @@ const Login = () => {
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
           <div className="p-14 bg-formBg rounded-lg border-2 border-[#4D4C5A]">
             <h2 className="text-3xl font-bold leading-tight text-center">
-              Register Now
+              Log In Now
             </h2>
             <p className="mt-4 text-base text-secondaryTextColor">
               Don&#x27;t have an account?{" "}
@@ -30,6 +30,7 @@ const Login = () => {
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       name="email"
+                      autoComplete="off"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -43,6 +44,7 @@ const Login = () => {
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
                       name="password"
+                      autoComplete="off"
                       placeholder="Enter your password"
                     />
                   </div>
