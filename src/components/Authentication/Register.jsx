@@ -20,6 +20,17 @@ const Register = () => {
     setRegisterSuccess("");
     setRegisterError("");
 
+    if(password.length < 6){
+        setRegisterError('Password must be at least 6 characters long!');
+        return;
+    }else if(!/[A-Z]/.test(password)){
+        setRegisterError( 'Your password must contain at least one uppercase character and one special character!');
+        return;
+      }else if (!/[!@#$%^&*()_+{}\\[\]:;<>,.?~\\-]/.test(password)) {
+        setRegisterError("Password must contain at least one special character.");
+        return;
+      }
+
     registerUser(email, password)
       .then((res) => {
         console.log(res.user);
