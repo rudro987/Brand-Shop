@@ -7,10 +7,12 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        cormorant: "'Cormorant Garamond', serif",
+        inter: "'Inter', sans-serif;",
       },
       colors:{
-        btnColor: "#F75B5F",
+        btnColor: "#36B37E",
+        secondaryTextColor: "#A1A0AE",
+        formBg: "#2C2C39"
       }
     },
   },
