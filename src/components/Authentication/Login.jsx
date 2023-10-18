@@ -1,6 +1,17 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
+  const {loginUser, googleLogin} = useContext(AuthContext);
+
+  const handleLogin = e => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const email = form.get('email');
+    const password = form.get('password');
+    console.log(email, password);
+  }
   return (
     <div className="max-w-[1320px] mx-auto">
       <section className="rounded-md">
@@ -18,7 +29,7 @@ const Login = () => {
                 Please register here
               </Link>
             </p>
-            <form className="mt-8">
+            <form className="mt-8" onSubmit={handleLogin}>
               <div className="space-y-5">
                 <div>
                   <label className="text-base font-medium">
@@ -30,7 +41,6 @@ const Login = () => {
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       name="email"
-                      autoComplete="off"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -44,14 +54,13 @@ const Login = () => {
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
                       name="password"
-                      autoComplete="off"
                       placeholder="Enter your password"
                     />
                   </div>
                 </div>
                 <div>
                   <button
-                    type="button"
+                    type="submit"
                     className="inline-flex w-full items-center justify-center rounded-md bg-btnColor px-3.5 py-2.5 font-semibold leading-7 text-black hover:bg-black/80 hover:text-white"
                   >
                     Log in{" "}

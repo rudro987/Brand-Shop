@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,6 +10,9 @@ const Register = () => {
 
   const [registerError, setRegisterError] = useState(null);
   const [registerSuccess, setRegisterSuccess] = useState(null);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -41,6 +44,9 @@ const Register = () => {
           .catch((err) => console.error(err.message));
 
         setRegisterSuccess(`${name} you have been registered successfully`);
+        setTimeout(() => {
+            navigate(location?.state ? location.state : "/");
+        }, 1500);
       })
       .catch((err) => {
         setRegisterError(err.message);
