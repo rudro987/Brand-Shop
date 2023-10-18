@@ -42,12 +42,12 @@ const AuthProvider = ({ children }) => {
         return () => unSubscribe();
     }, [])
 
-    const userInfo = {user, loading, registerUser, loginUser, googleLogIn, logOut};
+    const authInfo = {user, loading, registerUser, loginUser, googleLogIn, logOut};
     
 
     return (
         <div>
-            <AuthContext.Provider>{children}</AuthContext.Provider>
+            <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
         </div>
     );
 };
