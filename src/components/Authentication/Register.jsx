@@ -45,6 +45,19 @@ const Register = () => {
           .then()
           .catch((err) => toast.error(err.message));
 
+        const user = {name, email, image, password};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+
         setRegisterSuccess(`${name}, you have been registered successfully`);
         setTimeout(() => {
             navigate(location?.state ? location.state : "/");
