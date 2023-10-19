@@ -18,6 +18,7 @@ const Register = () => {
     e.preventDefault();
     const form = new FormData(e.target);
     const name = form.get("name");
+    const image = form.get("image");
     const email = form.get("email");
     const password = form.get("password");
     setRegisterSuccess("");
@@ -39,11 +40,12 @@ const Register = () => {
         console.log(res.user);
         updateProfile(res.user, {
           displayName: name,
+          photoURL: image
         })
-          .then((res) => console.log("profile updated"))
-          .catch((err) => console.error(err.message));
+          .then()
+          .catch((err) => toast.error(err.message));
 
-        setRegisterSuccess(`${name} you have been registered successfully`);
+        setRegisterSuccess(`${name}, you have been registered successfully`);
         setTimeout(() => {
             navigate(location?.state ? location.state : "/");
         }, 1500);
@@ -83,8 +85,21 @@ const Register = () => {
                     <input
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="text"
+                      required
                       name="name"
                       placeholder="Enter your name"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-base font-medium"> Your Image </label>
+                  <div className="mt-2">
+                    <input
+                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      type="text"
+                      required
+                      name="image"
+                      placeholder="Enter your Image URL"
                     />
                   </div>
                 </div>
@@ -97,6 +112,7 @@ const Register = () => {
                     <input
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
+                      required
                       name="email"
                       placeholder="Enter your email"
                     />
@@ -110,6 +126,7 @@ const Register = () => {
                     <input
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
+                      required
                       name="password"
                       placeholder="Enter your password"
                     />

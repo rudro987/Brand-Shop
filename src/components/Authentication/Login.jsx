@@ -1,17 +1,46 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const {loginUser, googleLogin} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = e => {
     e.preventDefault();
     const form = new FormData(e.target);
     const email = form.get('email');
     const password = form.get('password');
-    console.log(email, password);
+    
+    loginUser(email, password)
+    .then(res => {
+      toast.success(`${res.user.displayName}, you are successfully logged in!`);
+      setTimeout(() => {
+        navigate(location?.state? location.state: "/")
+      }, 1500);
+    })
+    .catch(err => {
+      if(err.code === "auth/invalid-login-credentials"){
+        toast.error('Login error: Email or Password is incorrect!');
+      }
+    })
   }
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(res => {
+      console.log(res.user)
+      toast.success(`${res.user.displayName} you are successfully logged in!`);
+      setTimeout(() => {
+        navigate(location?.state? location.state: "/")
+      }, 1500);
+    })
+    .catch(err => toast.error(err.message));
+  }
+
   return (
     <div className="max-w-[1320px] mx-auto">
       <section className="rounded-md">
@@ -40,6 +69,7 @@ const Login = () => {
                     <input
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
+                      required
                       name="email"
                       placeholder="Enter your email"
                     />
@@ -53,6 +83,7 @@ const Login = () => {
                     <input
                       className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
+                      required
                       name="password"
                       placeholder="Enter your password"
                     />
@@ -86,6 +117,7 @@ const Login = () => {
             <div className="mt-5">
               <button
                 type="button"
+                onClick={handleGoogleLogin}
                 className="relative inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold text-white transition-all duration-200 hover:bg-btnColor hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
               >
                 <span className="mr-2 inline-block">
@@ -102,6 +134,7 @@ const Login = () => {
               </button>
             </div>
           </div>
+          <ToastContainer></ToastContainer>
         </div>
       </section>
     </div>
