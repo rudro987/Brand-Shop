@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "brandName": "Yamaha",
+        "image": "https://i.ibb.co/Vwypw5W/Yamaha-Logo.png"
+    },
+    {
+        "id": 2,
+        "brandName": "Ducati",
+        "image": "https://i.ibb.co/SB8g4sh/Ducati-Logo-2009-present.png"
+    },
+    {
+        "id": 3,
+        "brandName": "BMW",
+        "image": "https://i.ibb.co/3p72B2g/BMW-Logo-2020-present.jpg"
+    },
+    {
+        "id": 4,
+        "brandName": "Harley-davidson",
+        "image": "https://i.ibb.co/H2SmxNP/Harley-Davidson-Motorcycles-Logo-1980s-present.jpg"
+    },
+    {
+        "id": 5,
+        "brandName": "Suzuki",
+        "image": "https://i.ibb.co/vx7m8S3/Suzuki-Emblem.png"
+    },
+    {
+        "id": 6,
+        "brandName": "Honda",
+        "image": "https://i.ibb.co/BTBWrjY/Honda-Logo.png"
+    }    
+]
