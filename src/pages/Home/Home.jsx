@@ -1,6 +1,7 @@
 import Banner from "./Banner/Banner";
 import BrandCard from "./BrandCard";
 const Home = () => {
+
   return (
     <div>
       <Banner></Banner>

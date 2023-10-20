@@ -11,7 +11,10 @@ const BrandCard = () => {
     <>
       {data.map((brand) => (
         <>
-          <div key={brand.id} className="relative h-[400px] w-[300px] rounded-xl">
+          <div
+            key={brand.id}
+            className="relative h-[400px] w-[300px] rounded-xl"
+          >
             <Link to={`/bikes/${brand.brandName}`}>
               <img
                 src={brand.image}

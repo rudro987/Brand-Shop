@@ -20,7 +20,6 @@ const AddProduct = () => {
     const price = parseInt(form.price.value);
     const description = form.description.value;
 
-    // const isDuplicate = 
 
     const bike = {productName, brandName, image, type, price, description, rating};
     fetch('http://localhost:5000/bikes', {
