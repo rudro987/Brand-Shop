@@ -1,10 +1,44 @@
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
+import useJsonLoader from "../../Hooks/useJsonLoader";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+  const [brandName, setBrandName] = useState(null);
+
+  const { data } = useJsonLoader("brands.json");
+
+  const handleProductSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const productName = form.productName.value;
+    const image = form.image.value;
+    const type = form.type.value;
+    const price = parseInt(form.price.value);
+    const description = form.description.value;
+
+    // const isDuplicate = 
+
+    const bike = {productName, brandName, image, type, price, description, rating};
+    fetch('http://localhost:5000/bikes', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(bike)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.insertedId){
+            toast.success(`${productName} added successfully to ${brandName}`);
+        } 
+    }
+    )
+  };
+
   return (
     <div className="max-w-[1320px] mx-auto">
       <section className="rounded-md">
@@ -13,7 +47,7 @@ const AddProduct = () => {
             <h2 className="text-3xl font-bold leading-tight text-center">
               Add a Product
             </h2>
-            <form className="mt-8">
+            <form className="mt-8" onSubmit={handleProductSubmit}>
               <div className="space-y-5">
                 <div>
                   <label className="text-base font-medium">
@@ -38,13 +72,18 @@ const AddProduct = () => {
                     </label>
                   </div>
                   <div className="mt-2">
-                    <input
-                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                      type="text"
-                      required
-                      name="brandName"
-                      placeholder="Enter brand name"
-                    />
+                    <select onChange={e => setBrandName(e.target.value)} className="flex h-10 w-full text-secondaryTextColor rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder: focus:outline-none disabled:cursor-not-allowed disabled:opacity-50">
+                      <option disabled>Select a brand</option>
+                      {data?.map((brand) => (
+                        <option
+                          key={brand.id}
+                          value={brand.brandName}
+                          name="brandName"
+                        >
+                          {brand.brandName}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div>
@@ -89,6 +128,24 @@ const AddProduct = () => {
                     />
                   </div>
                 </div>
+
+                <div>
+                  <div className="flex items-center justify-between">
+                    <label className="text-base font-medium">
+                      {" "}
+                      Short Description{" "}
+                    </label>
+                  </div>
+                  <div className="mt-2">
+                    <textarea
+                      className="flex h-20 resize-none w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      required
+                      name="description"
+                      placeholder="Enter description here"
+                    ></textarea>
+                  </div>
+                </div>
+
                 <div>
                   <div className="flex items-center justify-between">
                     <label className="text-base font-medium">

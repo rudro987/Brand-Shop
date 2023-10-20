@@ -7,6 +7,7 @@ import Login from "../components/Authentication/Login";
 import MyCart from "../pages/MyCart/MyCart";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import PrivateRoutes from "./privateRoutes";
+import Brand from "../pages/Brands/Brand";
 
 const routes = createBrowserRouter([
   {
@@ -34,6 +35,12 @@ const routes = createBrowserRouter([
         path: "/register",
         element: <Register></Register>
       },
+      {
+        path: '/bikes/:brandName',
+        element: <Brand></Brand>,
+        loader: ({params}) => fetch(`http://localhost:5000/bikes/${params.brandName}`)
+      }
+      
     ],
   },
 ]);
