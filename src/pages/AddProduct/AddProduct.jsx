@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 const AddProduct = () => {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  const [brandName, setBrandName] = useState(null);
+  const [brandName, setBrandName] = useState('');
 
   const { data } = useJsonLoader("brands.json");
 
@@ -20,22 +20,31 @@ const AddProduct = () => {
     const price = parseInt(form.price.value);
     const description = form.description.value;
 
+    const bike = {
+      productName,
+      brandName,
+      image,
+      type,
+      price,
+      description,
+      rating,
+    };
 
-    const bike = {productName, brandName, image, type, price, description, rating};
-    fetch('http://localhost:5000/bikes', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(bike)
+    fetch("http://localhost:5000/bikes", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(bike),
     })
-    .then(res => res.json())
-    .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if(data.insertedId){
-            toast.success(`${productName} added successfully to ${brandName}`);
-        } 
-    }
-    )
+          toast.success(`${productName} added successfully to ${brandName}`);
+        }
+        form.reset();
+        setRating(null);
+      })
   };
 
   return (
@@ -71,13 +80,17 @@ const AddProduct = () => {
                     </label>
                   </div>
                   <div className="mt-2">
-                    <select onChange={e => setBrandName(e.target.value)} className="flex h-10 w-full text-secondaryTextColor rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder: focus:outline-none disabled:cursor-not-allowed disabled:opacity-50">
-                      <option disabled>Select a brand</option>
+                    <select
+                      onChange={(e) => setBrandName(e.target.value)}
+                      required
+                      defaultValue=""
+                      className="flex h-10 w-full text-secondaryTextColor rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder: focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      <option disabled value="">Select a brand</option>
                       {data?.map((brand) => (
                         <option
                           key={brand.id}
                           value={brand.brandName}
-                          name="brandName"
                         >
                           {brand.brandName}
                         </option>
@@ -161,6 +174,7 @@ const AddProduct = () => {
                           <input
                             type="radio"
                             name="rating"
+                            required
                             value={currentRating}
                             onClick={() => setRating(currentRating)}
                             className="hidden"

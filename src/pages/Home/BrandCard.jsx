@@ -8,11 +8,10 @@ const BrandCard = () => {
     return <div className="loading loading-infinity loading-lg"></div>;
 
   return (
-    <>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-20">
       {data.map((brand) => (
-        <>
           <div
-            key={brand.id}
+            key={brand._id}
             className="relative h-[400px] w-[300px] rounded-xl"
           >
             <Link to={`/bikes/${brand.brandName}`}>
@@ -29,9 +28,8 @@ const BrandCard = () => {
               </div>
             </Link>
           </div>
-        </>
       ))}
-    </>
+    </div>
   );
 };
 

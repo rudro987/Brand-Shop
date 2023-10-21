@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const SingleBrandCard = ({ brand }) => {
   const { _id, productName, brandName, image, price, rating, type } = brand;
-  console.log(brand);
   return (
     <div className="card w-full bg-formBg rounded-xl border-2 border-[#4D4C5A]">
       <figure className="px-10 pt-10">

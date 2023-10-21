@@ -3,7 +3,6 @@ import SingleBrandCard from "./SingleBrandCard";
 
 const Brand = () => {
   const singleBrand = useLoaderData([]);
-
   const brandName = singleBrand[0] ? singleBrand[0].brandName : "";
   return (
     <div className="max-w-[1320px] mx-auto py-28">
@@ -16,7 +15,7 @@ const Brand = () => {
       </h1>
       <div className="grid md:grid-cols-2 gap-20">
         {singleBrand.map((brand) => (
-          <SingleBrandCard key={brand.id} brand={brand} />
+          <SingleBrandCard key={brand._id} brand={brand} />
         ))}
       </div>
       

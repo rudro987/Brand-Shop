@@ -1,12 +1,27 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+export let userId = '';
+
 const NavBar = () => {
 
   const {user, logOut} = useContext(AuthContext);
+  if(user){
+    userId = user.uid;
+  }
+
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    if(theme === 'dark'){
+      document.documentElement.classList.add('dark');
+    }else{
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme])
 
   const handleLogOut = () => {
     logOut()
@@ -16,6 +31,9 @@ const NavBar = () => {
     .catch(err => toast.error(err.message));
   }
 
+  const handleThemeSwitch = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }
   return (
     <div className="navbar bg-transparent max-w-[1320px] mx-auto">
       <div className="navbar-start">
@@ -53,7 +71,7 @@ const NavBar = () => {
         </a>
       </div>
       <div className="navbar-center">
-        <ul className="menu menu-horizontal px-1 hidden lg:flex">
+        <ul className="menu menu-horizontal px-1 hidden lg:flex lg:gap-5 text-base">
           <li>
             <NavLink
               to="/"
@@ -112,12 +130,16 @@ const NavBar = () => {
       </label>
         <div className="text-sm font-semibold">{user.displayName}</div>
         <div>
-        <button className="btn" onClick={handleLogOut}>Log Out</button>
+        <button className="btn bg-btnColor border-none hover:bg-black hover:text-white" onClick={handleLogOut}>Log Out</button>
         </div>
         </div>
         :
-        <Link to="/login"><button className="btn">Login</button></Link>
+        <Link to="/login"><button className="btn bg-btnColor border-none hover:bg-black hover:text-white">Login</button></Link>
       }
+
+      <button onClick={handleThemeSwitch} id="theme-toggle" type="button" className="text-black dark:text-black hover:text-white font-medium dark:hover:text-white bg-btnColor hover:bg-black dark:hover:bg-black rounded-lg text-sm p-3.5 ml-2">
+        Switch Theme
+      </button>
         
       </div>
       <ToastContainer></ToastContainer>

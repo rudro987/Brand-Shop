@@ -1,14 +1,35 @@
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { userId } from "../../components/Header/NavBar/NavBar";
 
 const ProductDetails = () => {
+  const loggedinUserId = userId;
   const product = useLoaderData();
   const { productName, brandName, image, description, price, type, rating } =
     product;
 
-    const handleAddToCart = () => {
-        console.log(product)
-    }
+
+  const cartItem = {...product, userId: loggedinUserId};
+  delete cartItem._id;
+
+  const handleAddToCart = () => {
+    fetch("http://localhost:5000/my-cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cartItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if(data.insertedId){
+          toast.success(`${productName} added successfully to cart`);  
+        }
+      })
+      .catch((err) => {err.message})
+  };
   return (
     <div className="max-w-[1320px] mx-auto py-28 h-[40vh] lg:h-[85vh]">
       <div className="card lg:card-side gap-20">
@@ -58,12 +79,16 @@ const ProductDetails = () => {
             </div>
           </div>
           <div className="card-actions justify-start">
-            <button onClick={handleAddToCart} className="btn bg-btnColor hover:bg-black text-black hover:text-white border-none">
+            <button
+              onClick={handleAddToCart}
+              className="btn bg-btnColor hover:bg-black text-black hover:text-white border-none"
+            >
               Add to Cart
             </button>
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
