@@ -31,21 +31,23 @@ const ProductDetails = () => {
       .catch((err) => {err.message})
   };
   return (
+    <div className="dark:bg-gradient-to-t from-[#141420a6] to-[#141420]">
     <div className="max-w-[1320px] mx-auto py-28 h-[40vh] lg:h-[85vh]">
-      <div className="card lg:card-side gap-20">
-        <figure>
+      <div className="flex flex-row w-full card">
+      <div className="w-1/2">
           <img
             src={image}
-            alt="Album"
-            className="bg-formBg rounded-xl border-2 border-[#4D4C5A] object-cover "
+            alt={productName}
+            className="bg-formBg rounded-xl border-2 border-[#4D4C5A]"
           />
-        </figure>
-        <div className="card-body space-y-10">
-          <h2 className="text-4xl font-extrabold">Model: {productName}</h2>
-          <p className="text-xl text-secondaryTextColor font-semibold">
+      </div>
+        
+        <div className="card-body space-y-3 w-1/2">
+          <h2 className="text-2xl font-extrabold">Model: {productName}</h2>
+          <p className="text-base text-secondaryTextColor font-semibold">
             {description}
           </p>
-          <div className="flex gap-20 bg-formBg rounded-xl border-2 border-[#4D4C5A] p-10 w-7/12">
+          <div className="flex gap-20 text-black dark:text-white rounded-xl border-2 border-[#4D4C5A] p-10 w-auto">
             <div className="space-y-5">
               <p className="text-xl font-semibold">Brand: {brandName}</p>
               <p className="text-xl font-semibold">
@@ -89,6 +91,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <ToastContainer></ToastContainer>
+    </div>
     </div>
   );
 };

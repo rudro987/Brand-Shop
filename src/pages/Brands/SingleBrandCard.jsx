@@ -3,11 +3,13 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SingleBrandCard = ({ brand }) => {
+  
   const { _id, productName, brandName, image, price, rating, type } = brand;
   return (
-    <div className="card w-full bg-formBg rounded-xl border-2 border-[#4D4C5A]">
+    
+    <div className="card w-full bg-[#F5F5F5] dark:bg-formBg rounded-xl border-2 border-[#d3d3d6] dark:border-[#4D4C5A]">
       <figure className="px-10 pt-10">
-        <img src={image} alt="Shoes" className="rounded-xl object-cover" />
+        <img src={image} alt={productName} className="rounded-xl object-cover" />
       </figure>
       <div className="card-body space-y-5">
         <h2 className="text-3xl font-bold text-center">Model: {productName}</h2>
@@ -43,9 +45,11 @@ const SingleBrandCard = ({ brand }) => {
               View Details
             </button>
           </Link>
+          <Link to={`/updateProducts/${_id}`}>
           <button className="btn rounded-md bg-black text-white hover:bg-btnColor hover:text-black border-none">
             Update
           </button>
+          </Link>
         </div>
       </div>
     </div>

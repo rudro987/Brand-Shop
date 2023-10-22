@@ -4,11 +4,9 @@ import Footer from "../components/Footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="font-inter bg-opacity-100 bg-white dark:bg-[#001420] text-black dark:text-white">
+    <div className="font-inter bg-opacity-100 bg-stone-200 dark:bg-[#001420] text-black dark:text-white">
       <Header></Header>
-      <div className="">
       <Outlet></Outlet>
-      </div>
       <Footer></Footer>
     </div>
   );

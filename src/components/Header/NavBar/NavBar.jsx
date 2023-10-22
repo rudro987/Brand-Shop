@@ -35,7 +35,7 @@ const NavBar = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }
   return (
-    <div className="navbar bg-transparent max-w-[1320px] mx-auto">
+    <div className="navbar bg-transparent max-w-[1320px] mx-auto py-5">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -66,12 +66,15 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl hidden lg:inline-flex">
-          MaxSpeed
+        <div className="flex gap-4 items-center">
+        <img src="https://i.ibb.co/P6sswT9/logo.png" className="w-1/3" />
+        <a className="normal-case text-2xl hidden lg:inline-flex gap-0">  
+          Max<span className="text-btnColor">Speed</span>
         </a>
+        </div>
       </div>
       <div className="navbar-center">
-        <ul className="menu menu-horizontal px-1 hidden lg:flex lg:gap-5 text-base">
+        <ul className="menu menu-horizontal  px-1 hidden lg:flex lg:gap-5 text-base">
           <li>
             <NavLink
               to="/"
@@ -115,8 +118,8 @@ const NavBar = () => {
             </NavLink>
           </li>
         </ul>
-        <a className="btn btn-ghost normal-case text-xl lg:hidden inline-flex">
-          MaxSpeed
+        <a className="btn btn-ghost normal-case text-xl lg:hidden inline-flex gap-0">
+        Max<span className="text-btnColor">Speed</span>
         </a>
       </div>
       <div className="navbar-end">
@@ -130,15 +133,15 @@ const NavBar = () => {
       </label>
         <div className="text-sm font-semibold">{user.displayName}</div>
         <div>
-        <button className="btn bg-btnColor border-none hover:bg-black hover:text-white" onClick={handleLogOut}>Log Out</button>
+        <button className="btn text-white dark:text-black hover:text-black dark:hover:text-white bg-black dark:bg-btnColor dark:hover:bg-black hover:bg-btnColor border-none" onClick={handleLogOut}>Log Out</button>
         </div>
         </div>
         :
-        <Link to="/login"><button className="btn bg-btnColor border-none hover:bg-black hover:text-white">Login</button></Link>
+        <Link to="/login"><button className="btn text-white dark:text-black hover:text-black dark:hover:text-white bg-black dark:bg-btnColor dark:hover:bg-black hover:bg-btnColor border-none">Login</button></Link>
       }
 
-      <button onClick={handleThemeSwitch} id="theme-toggle" type="button" className="text-black dark:text-black hover:text-white font-medium dark:hover:text-white bg-btnColor hover:bg-black dark:hover:bg-black rounded-lg text-sm p-3.5 ml-2">
-        Switch Theme
+      <button onClick={handleThemeSwitch} id="theme-toggle" type="button" className="text-white font-semibold dark:text-black hover:text-black dark:hover:text-white bg-black dark:bg-btnColor dark:hover:bg-black hover:bg-btnColor rounded-lg text-sm p-3.5 ml-2">
+        SWITCH THEME
       </button>
         
       </div>

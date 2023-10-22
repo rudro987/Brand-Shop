@@ -74,10 +74,11 @@ const Register = () => {
   }, [registerSuccess, registerError]);
 
   return (
+    <div className="dark:bg-gradient-to-t from-[#141420a6] to-[#141420]">
     <div className="max-w-[1320px] mx-auto">
-      <section className="rounded-md">
+      <section className="rounded-md py-20">
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-          <div className="p-14 bg-formBg rounded-lg border-2 border-[#4D4C5A]">
+          <div className="p-14 bg-[#FFFAFA] dark:bg-formBg  rounded-lg border-2 border-stone-500 dark:border-[#4D4C5A]">
             <h2 className="text-3xl font-bold leading-tight text-center">
               Register Now
             </h2>
@@ -96,7 +97,7 @@ const Register = () => {
                   <label className="text-base font-medium"> Your Name </label>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md bg-[#F5F5F5] dark:bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="text"
                       required
                       name="name"
@@ -108,7 +109,7 @@ const Register = () => {
                   <label className="text-base font-medium"> Your Image </label>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md bg-[#F5F5F5] dark:bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="text"
                       required
                       name="image"
@@ -123,7 +124,7 @@ const Register = () => {
                   </label>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md bg-[#F5F5F5] dark:bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       required
                       name="email"
@@ -137,7 +138,7 @@ const Register = () => {
                   </div>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md bg-[#F5F5F5] dark:bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
                       required
                       name="password"
@@ -174,6 +175,7 @@ const Register = () => {
           </div>
         </div>
       </section>
+    </div>
     </div>
   );
 };

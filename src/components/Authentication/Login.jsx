@@ -19,6 +19,8 @@ const Login = () => {
     .then(res => {
       toast.success(`${res.user.displayName}, you are successfully logged in!`);
       setTimeout(() => {
+        console.log(location);
+        console.log("Location:", location?.state);
         navigate(location?.state? location.state: "/")
       }, 1500);
     })
@@ -42,10 +44,11 @@ const Login = () => {
   }
 
   return (
+    <div className="dark:bg-gradient-to-t from-[#141420a6] to-[#141420]">
     <div className="max-w-[1320px] mx-auto">
-      <section className="rounded-md">
+      <section className="rounded-md py-20">
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-          <div className="p-14 bg-formBg rounded-lg border-2 border-[#4D4C5A]">
+          <div className="p-14 bg-[#FFFAFA] dark:bg-formBg rounded-lg border-2 border-[#4D4C5A]">
             <h2 className="text-3xl font-bold leading-tight text-center">
               Log In Now
             </h2>
@@ -67,7 +70,7 @@ const Login = () => {
                   </label>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md bg-[#F5F5F5] dark:bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="email"
                       required
                       name="email"
@@ -81,7 +84,7 @@ const Login = () => {
                   </div>
                   <div className="mt-2">
                     <input
-                      className="flex h-10 w-full rounded-md bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md bg-[#F5F5F5] dark:bg-[#353444] border-[1px] border-[#4D4C5A] px-3 py-2 text-sm placeholder:text-secondaryTextColor focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
                       type="password"
                       required
                       name="password"
@@ -137,6 +140,7 @@ const Login = () => {
           <ToastContainer></ToastContainer>
         </div>
       </section>
+    </div>
     </div>
   );
 };

@@ -4,6 +4,6 @@
 @tailwind utilities;
 
 .active{
-    background-color: #36B37E !important;
-    color:black !important;
+    background-color: black !important;
+    color:white !important;
 }

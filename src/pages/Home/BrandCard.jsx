@@ -1,36 +1,52 @@
 import { Link } from "react-router-dom";
-import useJsonLoader from "../../Hooks/useJsonLoader";
+import { useContext } from "react";
+import { BrandsContext } from "../../Hooks/BrandsProvider";
+
 
 /* eslint-disable react/prop-types */
 const BrandCard = () => {
-  const { data, loading } = useJsonLoader("brands.json");
-  if (loading)
-    return <div className="loading loading-infinity loading-lg"></div>;
+const {brands, isLoading} = useContext(BrandsContext);
 
+if (isLoading) {
+  return <div className="loading loading-infinity loading-lg"></div>;
+}
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-20">
-      {data.map((brand) => (
-          <div
-            key={brand._id}
-            className="relative h-[400px] w-[300px] rounded-xl"
-          >
-            <Link to={`/bikes/${brand.brandName}`}>
-              <img
-                src={brand.image}
-                alt="AirMax Pro"
-                className="z-0 h-full w-full rounded-xl object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-left">
-                <h1 className="text-lg font-semibold text-secondaryTextColor text-center">
-                  {brand.brandName}
-                </h1>
-              </div>
-            </Link>
-          </div>
-      ))}
-    </div>
-  );
+    {brands.map((brand, index) => (
+      <div key={index} className="w-[300px] rounded-md border-2 border-[#4D4C5A] bg-[#F5F5f5] dark:bg-formBg pt-5">
+      <Link to={`/bikes/${brand.brandName}`}>
+  <img
+    src={brand.image}
+    alt={brand.brandName}
+    className="h-[200px] w-full rounded-t-md object-cover"
+  />
+  <div className="p-4">
+    <h1 className="flex justify-center items-center text-2xl font-semibold">
+      {brand.brandName}  {" "}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="h-4 w-4"
+      >
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>
+    </h1>
+
+  </div>
+  </Link>
+</div>
+    ))}
+</div>
+
+  )
 };
 
 export default BrandCard;
