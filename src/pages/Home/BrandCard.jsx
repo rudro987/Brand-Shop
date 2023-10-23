@@ -13,7 +13,7 @@ if (isLoading) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-20">
     {brands.map((brand, index) => (
-      <div key={index} className="w-[300px] rounded-md border-2 border-[#4D4C5A] bg-[#F5F5f5] dark:bg-formBg pt-5">
+      <div key={index} className="lg:w-[300px] rounded-md border-2 border-[#4D4C5A] bg-[#F5F5f5] dark:bg-formBg pt-5">
       <Link to={`/bikes/${brand.brandName}`}>
   <img
     src={brand.image}
