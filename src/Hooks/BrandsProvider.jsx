@@ -14,12 +14,7 @@ const BrandsProvider = ({ children }) => {
                 'content-type': 'application/json'
             }
         })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(response =>  response.json())
         .then(data => {
             setBrands(data);
             setIsLoading(false);

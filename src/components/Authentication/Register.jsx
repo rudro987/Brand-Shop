@@ -37,7 +37,6 @@ const Register = () => {
 
     registerUser(email, password)
       .then((res) => {
-        console.log(res.user);
         updateProfile(res.user, {
           displayName: name,
           photoURL: image

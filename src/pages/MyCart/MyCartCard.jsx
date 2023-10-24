@@ -12,7 +12,6 @@ const MyCartCard = ({ filteredCartItems }) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.deletedCount > 0){
                 toast.success('Item deleted successfully!');
                 setCartItems(cartItems.filter((item) => item._id !== id));

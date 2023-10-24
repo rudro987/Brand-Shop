@@ -19,8 +19,6 @@ const Login = () => {
     .then(res => {
       toast.success(`${res.user.displayName}, you are successfully logged in!`);
       setTimeout(() => {
-        console.log(location);
-        console.log("Location:", location?.state);
         navigate(location?.state? location.state: "/")
       }, 1500);
     })
@@ -34,7 +32,6 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
     .then(res => {
-      console.log(res.user)
       toast.success(`${res.user.displayName} you are successfully logged in!`);
       setTimeout(() => {
         navigate(location?.state? location.state: "/")
