@@ -4,17 +4,17 @@ const Footer = () => {
   return (
     <section className="relative overflow-hidden py-16 bg-slate-200 dark:bg-[#001420]">
       <div className="container max-w-[1320px] relative z-10 mx-auto px-4">
-        <div className="-m-8 flex items-center justify-between">
-          <div className="w-auto p-8">
+        <div className="-m-8 flex flex-col lg:flex-row items-center justify-between">
+          <div className="w-auto p-2 lg:p-8">
             <Link to="/">
               <div className="flex justify-center lg:inline-flex items-center">
                 <span className="ml-4 text-lg font-bold">Max Speed</span>
               </div>
             </Link>
           </div>
-          <div className="w-auto p-8">
-            <ul className="-m-5 flex flex-wrap items-center">
-              <li className="p-5">
+          <div className="w-auto px-8 py-4">
+            <ul className="-m-5 flex lg:flex-wrap items-center text-sm lg:text-lg">
+              <li className="px-1.5 lg:p-5">
                 <a
                   className="font-medium text-black dark:text-white hover:text-btnColor dark:hover:text-btnColor"
                   href="#"
@@ -22,7 +22,7 @@ const Footer = () => {
                   Privacy Policy
                 </a>
               </li>
-              <li className="p-5">
+              <li className="px-1.5 lg:p-5">
                 <a
                   className="font-medium text-black dark:text-white hover:text-btnColor dark:hover:text-btnColor"
                   href="#"
@@ -30,7 +30,7 @@ const Footer = () => {
                   Terms of Service
                 </a>
               </li>
-              <li className="p-5">
+              <li className="px-1.5 lg:p-5">
                 <a
                   className="font-medium text-black dark:text-white hover:text-btnColor dark:hover:text-btnColor"
                   href="#"
@@ -38,7 +38,7 @@ const Footer = () => {
                   Return Policy
                 </a>
               </li>
-              <li className="p-5">
+              <li className="px-1.5 lg:p-5">
                 <a
                   className="font-medium text-black dark:text-white hover:text-btnColor dark:hover:text-btnColor"
                   href="#"
@@ -48,7 +48,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-auto p-8">
+          <div className="w-auto p-4 lg:p-8">
             <div className="-m-1.5 flex flex-wrap">
               <div className="w-auto p-1.5">
                 <a href="#">
