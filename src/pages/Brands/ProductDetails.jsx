@@ -32,9 +32,9 @@ const ProductDetails = () => {
   };
   return (
     <div className="dark:bg-gradient-to-t from-[#141420a6] to-[#141420]">
-    <div className="max-w-[1320px] mx-auto py-28 h-[40vh] lg:h-[85vh]">
-      <div className="flex flex-row w-full card">
-      <div className="w-1/2">
+    <div className="max-w-[1320px] mx-auto py-16 lg:py-28 lg:h-[85vh]">
+      <div className="flex flex-col lg:flex-row w-full card">
+      <div className=" w-full lg:w-1/2">
           <img
             src={image}
             alt={productName}
@@ -42,12 +42,12 @@ const ProductDetails = () => {
           />
       </div>
         
-        <div className="card-body space-y-3 w-1/2 ">
+        <div className="card-body space-y-3 w-full lg:w-1/2">
           <h2 className="text-2xl font-extrabold">Model: {productName}</h2>
           <p className="text-base text-secondaryTextColor font-semibold">
             {description}
           </p>
-          <div className="flex gap-20 text-black dark:text-white rounded-xl border-2 border-[#4D4C5A] bg-[#F5F5F5] dark:bg-formBg p-10 w-auto">
+          <div className="lg:flex gap-20 text-black dark:text-white rounded-xl border-2 border-[#4D4C5A] bg-[#F5F5F5] dark:bg-formBg p-10 w-auto">
             <div className="space-y-5">
               <p className="text-xl font-semibold">Brand: {brandName}</p>
               <p className="text-xl font-semibold">
@@ -58,7 +58,7 @@ const ProductDetails = () => {
             <div className="space-y-5">
               <p className="text-xl font-semibold">Type: {type}</p>
               <div className="flex gap-2 grow-0">
-                <p className="text-lg font-medium w-[70px] grow-0">Rating: </p>
+                <p className="text-xl font-medium w-[70px] grow-0">Rating: </p>
                 <div className="flex gap-2 grow">
                   {[...Array(5)].map((star, index) => {
                     const currentRating = index + 1;

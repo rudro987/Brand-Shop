@@ -9,7 +9,7 @@ const Brand = () => {
   if(singleBrand.length === 0) {
     return (
       <div>
-          <p className="w-full h-[85vh] flex justify-center items-center text-2xl lg:text-4xl">
+          <p className="w-full h-[60vh] lg:h-[85vh] flex justify-center items-center text-2xl px-5 lg:px-0 lg:text-4xl text-center">
             No product uploaded in this brand yet!
           </p>
         </div>
@@ -23,7 +23,7 @@ const Brand = () => {
             All Products of {brandName}
           </h1>
           <Advertisements brandName={brandName}></Advertisements>
-          <div className="grid md:grid-cols-2 gap-20 mt-20">
+          <div className="px-5 lg:px-0 grid md:grid-cols-2 gap-5 lg:gap-20 mt-20">
             {singleBrand.map((brand) => (
                 <SingleBrandCard key={brand._id} brand={brand} />
             ))}

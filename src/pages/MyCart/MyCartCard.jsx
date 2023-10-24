@@ -24,7 +24,7 @@ const MyCartCard = ({ filteredCartItems }) => {
     <h2 className="text-3xl font-bold text-center mt-20 mb-10">Your cart</h2>
     {cartItems.length === 0 ? (
           <div>
-              <p className="w-full h-[40vh] flex justify-center items-center text-2xl lg:text-4xl">
+              <p className="w-full h-[40vh] flex justify-center items-center text-2xl lg:text-4xl text-center">
                 You haven't added anything to your cart yet!
               </p>
             </div>
@@ -37,21 +37,21 @@ const MyCartCard = ({ filteredCartItems }) => {
           
           <ul className="flex flex-col divide-y divide-gray-200">
             <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
-              <div className="flex w-full space-x-2 sm:space-x-4 rounded-lg">
+              <div className="lg:flex w-full space-y-2 sm:space-x-4 rounded-lg">
                 <img
-                  className="h-20 w-20 flex-shrink-0 object-cover outline-none dark:border-transparent sm:h-60 sm:w-80 rounded-md"
+                  className="flex-shrink-0 object-cover outline-none dark:border-transparent sm:h-60 sm:w-80 rounded-md"
                   src={item.image}
                   alt={item.productName}
                 />
-                <div className="flex w-full flex-col justify-items-center pb-4 p-10 rounded">
-                  <div className="flex w-full justify-center space-x-2 bg-[#F5F5F5] dark:bg-formBg px-5 py-10 rounded-lg">
-                    <div className="space-y-1 text-black dark:text-white">
+                <div className="flex w-full flex-col justify-items-center pb-4 lg:p-10 rounded">
+                  <div className="lg:flex w-full justify-center space-y-3 lg:space-y-0 lg:space-x-2 bg-[#F5F5F5] dark:bg-formBg px-5 py-10 rounded-lg">
+                    <div className="space-y-3 text-black dark:text-white text-center lg:text-left">
                       <h3 className="text-lg font-semibold leading-snug sm:pr-8">
                         {item.productName}
                       </h3>
                       <p className="text-sm">Brand: {item.brandName}</p>
                     </div>
-                    <div className="text-right">
+                    <div className="text-center lg:text-right">
                       <p className="text-base font-semibold text-black dark:text-white">Price: ${item.price}</p>
                     </div>
                   </div>

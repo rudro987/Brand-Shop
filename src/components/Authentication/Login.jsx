@@ -48,7 +48,7 @@ const Login = () => {
     <div className="max-w-[1320px] mx-auto">
       <section className="rounded-md py-20">
         <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
-          <div className="p-14 bg-[#FFFAFA] dark:bg-formBg rounded-lg border-2 border-[#4D4C5A]">
+          <div className="p-5 lg:p-14 bg-[#FFFAFA] dark:bg-formBg rounded-lg border-2 border-[#4D4C5A]">
             <h2 className="text-3xl font-bold leading-tight text-center">
               Log In Now
             </h2>
