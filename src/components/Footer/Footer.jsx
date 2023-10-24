@@ -12,7 +12,7 @@ const Footer = () => {
               </div>
             </Link>
           </div>
-          <div className="w-auto px-8 py-4">
+          <div className="w-auto p-8">
             <ul className="-m-5 flex lg:flex-wrap items-center text-sm lg:text-lg">
               <li className="px-1.5 lg:p-5">
                 <a
@@ -48,7 +48,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-auto p-4 lg:p-8">
+          <div className="w-auto lg:p-8">
             <div className="-m-1.5 flex flex-wrap">
               <div className="w-auto p-1.5">
                 <a href="#">
