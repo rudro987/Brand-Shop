@@ -69,7 +69,7 @@ const NavBar = () => {
                 ].join(" ")
               }
             >
-              Home
+              Home33
             </NavLink>
           </li>
           <li>

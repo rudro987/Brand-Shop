@@ -30,7 +30,7 @@ const AddProduct = () => {
       rating,
     };
 
-    fetch("http://localhost:5000/bikes", {
+    fetch("https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/bikes", {
       method: "POST",
       headers: {
         "content-type": "application/json",

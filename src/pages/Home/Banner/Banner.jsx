@@ -20,7 +20,7 @@ const Banner = () => {
             </div>
         </div>
         <div className="flex justify-end" >
-            <img src="https://i.ibb.co/rMWKYGj/bg1.png" alt="bg-image" className="lg:w-full object-contain" />
+            <img src="https://i.ibb.co/rMWKYGj/bg1.png" alt="bg-image" className="lg:w-full object-contain relative top-4 lg:top-10 " />
         </div>
         
         </div>

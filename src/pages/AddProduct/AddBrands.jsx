@@ -9,7 +9,7 @@ const AddBrands = () => {
         const slider2 = form.slider2.value;
         const slider3 = form.slider3.value;
         const brands = {brandName, image, slider1, slider2, slider3}
-        fetch('http://localhost:5000/addBrands', {
+        fetch('https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/addBrands', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

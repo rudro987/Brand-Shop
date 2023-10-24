@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
       {
         path: "/my-cart",
         element: <PrivateRoutes><MyCart></MyCart></PrivateRoutes>,
-        loader: () => fetch('http://localhost:5000/my-cart')
+        loader: () => fetch('https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/my-cart')
       },
       {
         path: "/login",
@@ -42,17 +42,17 @@ const routes = createBrowserRouter([
       {
         path: '/bikes/:brandName',
         element: <PrivateRoutes><Brand></Brand></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/bikes/${params.brandName}`)
+        loader: ({params}) => fetch(`https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/bikes/${params.brandName}`)
       },
       {
         path: '/bikes/:brandName/:id',
         element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/bikes/${params.brandName}/${params.id}`)
+        loader: ({params}) => fetch(`https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/bikes/${params.brandName}/${params.id}`)
       },
       {
         path: '/updateProducts/:id',
         element: <PrivateRoutes><UpdateProduct></UpdateProduct></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/updateProducts/${params.id}`)
+        loader: ({params}) => fetch(`https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/updateProducts/${params.id}`)
       },
       {
         path: '/addBrands',

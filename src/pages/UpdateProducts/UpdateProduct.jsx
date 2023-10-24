@@ -39,7 +39,7 @@ const UpdateProduct = () => {
       rating,
     };
 
-    fetch(`http://localhost:5000/updateProducts/${_id}`, {
+    fetch(`https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/updateProducts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -379,7 +379,7 @@ const UpdateProduct = () => {
                     type="submit"
                     className="inline-flex w-full items-center justify-center rounded-md bg-btnColor px-3.5 py-2.5 font-semibold leading-7 text-black hover:bg-black/80 hover:text-white"
                   >
-                    Add Product{" "}
+                    Update Product{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"

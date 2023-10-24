@@ -28,7 +28,7 @@ const Register = () => {
         setRegisterError('Password must be at least 6 characters long!');
         return;
     }else if(!/[A-Z]/.test(password)){
-        setRegisterError( 'Your password must contain at least one uppercase character and one special character!');
+        setRegisterError( 'Your password must contain at least one uppercase character!');
         return;
       }else if (!/[!@#$%^&*()_+{}\\[\]:;<>,.?~\\-]/.test(password)) {
         setRegisterError("Password must contain at least one special character.");
@@ -46,7 +46,7 @@ const Register = () => {
           .catch((err) => toast.error(err.message));
 
         const user = {name, email, image, password};
-        fetch('http://localhost:5000/users', {
+        fetch('https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/users', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

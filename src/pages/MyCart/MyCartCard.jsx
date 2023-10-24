@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 const MyCartCard = ({ filteredCartItems }) => {
   const [cartItems, setCartItems] = useState(filteredCartItems);
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/my-cart/${id}`,{
+        fetch(`https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/my-cart/${id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

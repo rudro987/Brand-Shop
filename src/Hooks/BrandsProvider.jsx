@@ -8,7 +8,7 @@ const BrandsProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/addBrands', {
+        fetch('https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/addBrands', {
             method: 'GET',
             headers: {
                 'content-type': 'application/json'

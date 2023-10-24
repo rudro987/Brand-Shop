@@ -15,7 +15,7 @@ const ProductDetails = () => {
   delete cartItem._id;
 
   const handleAddToCart = () => {
-    fetch("http://localhost:5000/my-cart", {
+    fetch("https://brand-shop-server-side-71jynkzgp-tanvir-hossains-projects.vercel.app/my-cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,12 +42,12 @@ const ProductDetails = () => {
           />
       </div>
         
-        <div className="card-body space-y-3 w-1/2">
+        <div className="card-body space-y-3 w-1/2 ">
           <h2 className="text-2xl font-extrabold">Model: {productName}</h2>
           <p className="text-base text-secondaryTextColor font-semibold">
             {description}
           </p>
-          <div className="flex gap-20 text-black dark:text-white rounded-xl border-2 border-[#4D4C5A] p-10 w-auto">
+          <div className="flex gap-20 text-black dark:text-white rounded-xl border-2 border-[#4D4C5A] bg-[#F5F5F5] dark:bg-formBg p-10 w-auto">
             <div className="space-y-5">
               <p className="text-xl font-semibold">Brand: {brandName}</p>
               <p className="text-xl font-semibold">
